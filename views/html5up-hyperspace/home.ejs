@@ -1,0 +1,188 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Home</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+
+		<!-- Google Analytics -->
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-93948712-1', 'auto');
+		  ga('send', 'pageview');
+
+		</script>
+
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<a href="/" class="title"><img class="logo" src="images/dounoa-network.jpg"></a>
+				<nav>
+					<ul>
+						<li><a href="/" class="active">View all Searches</a></li>
+						<li><a href="/post">Post a Search</a></li>
+						<li><a href="/my-profile">My Profile</a></li>
+						<li><a href="/logout">Logout</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+							<h1 class="major">Here's who people are looking for: Do You Know A...</h1>
+							<form method="get" action="/">
+								<div class="searchby">
+									<select id="category" name="category" onchange="this.form.submit()">
+										<% if (category == "programming") { %>
+											<option value="all">All Categories</option>
+											<option value="programming" selected>Programming & Tech</option>
+											<option value="design">Graphics & Design</option>
+											<option value="music">Music & Audio</option>
+											<option value="business">Business & Economics</option>
+											<option value="advice">Professional and Academic Advice</option>
+											<option value="sale">For Sale</option>
+											<option value="event">Event or Conference</option>
+											<option value="other">Other</option>
+										<% } else if (category == "design") { %>
+											<option value="all">All Categories</option>
+											<option value="programming">Programming & Tech</option>
+											<option value="design" selected>Graphics & Design</option>
+											<option value="music">Music & Audio</option>
+											<option value="business">Business & Economics</option>
+											<option value="advice">Professional and Academic Advice</option>
+											<option value="sale">For Sale</option>
+											<option value="event">Event or Conference</option>
+											<option value="other">Other</option>
+										<% } else if (category == "music") { %>
+											<option value="all">All Categories</option>
+											<option value="programming">Programming & Tech</option>
+											<option value="design">Graphics & Design</option>
+											<option value="music" selected>Music & Audio</option>
+											<option value="business">Business & Economics</option>
+											<option value="advice">Professional and Academic Advice</option>
+											<option value="sale">For Sale</option>
+											<option value="event">Event or Conference</option>
+											<option value="other">Other</option>
+										<% } else if (category == "business") { %>
+											<option value="all">All Categories</option>
+											<option value="programming">Programming & Tech</option>
+											<option value="design">Graphics & Design</option>
+											<option value="music">Music & Audio</option>
+											<option value="business" selected>Business & Economics</option>
+											<option value="advice">Professional and Academic Advice</option>
+											<option value="sale">For Sale</option>
+											<option value="event">Event or Conference</option>
+											<option value="other">Other</option>
+										<% } else if (category == "advice") { %>
+											<option value="all">All Categories</option>
+											<option value="programming">Programming & Tech</option>
+											<option value="design">Graphics & Design</option>
+											<option value="music">Music & Audio</option>
+											<option value="business">Business & Economics</option>
+											<option value="advice" selected>Professional and Academic Advice</option>
+											<option value="sale">For Sale</option>
+											<option value="event">Event or Conference</option>
+											<option value="other">Other</option>
+										<% } else if (category == "sale") { %>
+											<option value="all">All Categories</option>
+											<option value="programming">Programming & Tech</option>
+											<option value="design" >Graphics & Design</option>
+											<option value="music">Music & Audio</option>
+											<option value="business">Business & Economics</option>
+											<option value="advice">Professional and Academic Advice</option>
+											<option value="sale" selected>For Sale</option>
+											<option value="event">Event or Conference</option>
+											<option value="other">Other</option>
+										<% } else if (category == "event") { %>
+											<option value="all">All Categories</option>
+											<option value="programming">Programming & Tech</option>
+											<option value="design" >Graphics & Design</option>
+											<option value="music">Music & Audio</option>
+											<option value="business">Business & Economics</option>
+											<option value="advice">Professional and Academic Advice</option>
+											<option value="sale">For Sale</option>
+											<option value="event" selected>Event or Conference</option>
+											<option value="other">Other</option>
+										<% } else if (category == "other") { %>
+											<option value="all">All Categories</option>
+											<option value="programming">Programming & Tech</option>
+											<option value="design" >Graphics & Design</option>
+											<option value="music">Music & Audio</option>
+											<option value="business">Business & Economics</option>
+											<option value="advice">Professional and Academic Advice</option>
+											<option value="sale">For Sale</option>
+											<option value="event">Event or Conference</option>
+											<option value="other" selected>Other</option>
+										<% } else { %>
+											<option value="all" selected>All Categories</option>
+											<option value="programming">Programming & Tech</option>
+											<option value="design" >Graphics & Design</option>
+											<option value="music">Music & Audio</option>
+											<option value="business">Business & Economics</option>
+											<option value="advice">Professional and Academic Advice</option>
+											<option value="sale">For Sale</option>
+											<option value="event">Event or Conference</option>
+											<option value="other">Other</option>
+										<% } %>
+									</select>
+								</div>
+								<!-- <div class="searchby">
+									<a href="#" class="button submit">Search by Facebook Friends</a>
+								</div>
+								<div class="searchby">
+									<input type="text" name="geolocation" placeholder="Search by Location" />
+								</div> -->
+							</form>
+							<ul class="posts">
+								<% if(posts.length == 0) { %>
+									<li>No current posts match that search</li>
+								<% } else { %>
+									<% posts.forEach(function(post) { %>
+										<li><a href="/view-post?search=<%= post %>"</a><%= post %></li>
+									<% }); %>
+								<% } %>
+							</ul>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Pay</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+
+		<!-- Google Analytics -->
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-93948712-1', 'auto');
+		  ga('send', 'pageview');
+
+		</script>
+
+    <!-- Stripe -->
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script type="text/javascript" src="https://js.stripe.com/v3/"></script>
+    <script type="text/javascript" src="https://checkout.stripe.com/checkout.js"></script>
+		<script>
+			console.log("hello")
+			var publicStripeApiKey = 'pk_live_iSnQYpnVJiZXhCHJq1CKOXR8';
+			var publicStripeApiKeyTesting = 'pk_test_1Fn8kg2qafwJgDC7rstp5NkT';
+
+			Stripe.setPublishableKey(publicStripeApiKeyTesting);
+
+			function stripeResponseHandler (status, response) {
+			if (response.error) {
+				$('#error').text(response.error.message);
+				$('#error').slideDown(300);
+				$('#stripe-form .submit-button').removeAttr("disabled");
+				return;
+			}
+
+			var form = $("#payment-form");
+			form.append("<input type='hidden' name='stripeToken' value='" + response.id + "'/>");
+
+			$.post(
+				form.attr('action'),
+				form.serialize(),
+				function (status) {
+					if (status != 'ok') {
+						$('#error').text(status);
+						$('#error').slideDown(300);
+					}
+					else {
+						$('#error').hide();
+						$('#success').slideDown(300);
+					}
+					$('.submit-button').removeAttr("disabled");
+				}
+			);
+			}
+
+			// http://stripe.com/docs/tutorials/forms
+			$("#payment-form").submit(function(event) {
+			$('#error').hide();
+			// disable the submit button to prevent repeated clicks
+			$('.submit-button').attr("disabled", "disabled");
+
+			var amount = $('#cc-amount').val(); // amount you want to charge in cents
+			Stripe.createToken({
+				number: $('.card-number').val(),
+				cvc: $('.card-cvc').val(),
+				exp_month: $('.card-expiry-month').val(),
+				exp_year: $('.card-expiry-year').val()
+			}, amount, stripeResponseHandler);
+
+			// prevent the form from submitting with the default action
+			return false;
+			});
+		</script>
+
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<a href="/" class="title"><img class="logo" src="images/dounoa-network.jpg"></a>
+				<nav>
+					<ul>
+						<li><a href="/">View all Searches</a></li>
+						<li><a href="/post" class="active">Post A Search</a></li>
+						<li><a href="/my-profile">My Profile</a></li>
+						<li><a href="/logout">Logout</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+							<h1 class="major">See who's replied to your search for a <%= search %> for just $1</h1>
+              <div id="stripe-form">
+                <form method="post" action="/pay?search=<%= search %>" id="payment-form">
+                  <div class="form-row">
+                    <div class="cc-text">Card Number</div>
+                    <input type="text" name="number" size="30" autocomplete="off" class="card-number"/>
+                  </div>
+                  <div class="form-row">
+                    <div class="cc-text">CVC</div>
+                    <input type="text" name="cvc" size="4" autocomplete="off" class="card-cvc"/>
+                  </div>
+                  <div class="form-row">
+                    <div class="cc-text">Expiration (MM/YYYY)</div>
+                    <input type="text" name="month" size="2" class="card-expiry-month"/>
+                    <span> / </span>
+                    <input type="text" name="year" size="4" class="card-expiry-year"/>
+                  </div>
+                  <input type="hidden" name="amount" value="1000" id="cc-amount">
+                  <button type="submit" class="submit-button">Submit Payment</button>
+                </form>
+              </div>
+              <div id="error" class="hidden"></div>
+              <div id="success" class="hidden"></div>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,38 @@
+{
+  "name": "code",
+  "version": "1.0.0",
+  "description": "Do You Know A... connects you to the people you need",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "connect-pg-simple": "^3.1.2",
+    "dotenv": "^4.0.0",
+    "ejs": "^2.5.6",
+    "emailjs": "^1.0.8",
+    "express": "^4.15.2",
+    "express-session": "^1.15.1",
+    "node-gyp": "^3.6.0",
+    "nodemon": "^1.11.0",
+    "path": "^0.12.7",
+    "pg": "6.1.4",
+    "scrypt": "^6.0.3",
+    "stripe": "^4.17.1",
+    "twilio": "^2.11.1",
+    "venmo": "0.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yale-cpsc-213/startup-code-solitary-leaf.git"
+  },
+  "author": "Chris Gunther",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yale-cpsc-213/startup-code-solitary-leaf/issues"
+  },
+  "homepage": "https://github.com/yale-cpsc-213/startup-code-solitary-leaf#readme"
+}

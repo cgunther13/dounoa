@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>My Profile</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+
+		<!-- Google Analytics -->
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-93948712-1', 'auto');
+		  ga('send', 'pageview');
+
+		</script>
+		
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<a href="/" class="title"><img class="logo" src="images/dounoa-network.jpg"></a>
+				<nav>
+					<ul>
+						<li><a href="/">View all Searches</a></li>
+						<li><a href="/post">Post a Search</a></li>
+						<li><a href="/my-profile" class="active">My Profile</a></li>
+						<li><a href="/logout">Logout</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+							<h1 class="major">My Profile</h1>
+                <h2>Account Information</h2>
+									<ul>
+										<li>Username: <%= name %>
+										<li>Email: <%= email %></li>
+										<!-- <li>Password: <a href="/change-password">Change Password</a></li> -->
+										<% if (phone_number) { %>
+											<li>Phone Number: <%= phone_number %></li>
+										<% } else { %>
+											<form method="post" action="/phone">
+												<li>Add phone number to recieve text notifications when you get a new reply to your search <input type="text" name="phone_number" id="phone_number"/></li>
+												<li><a href="#" class="button submit">Add</a></li>
+											</form>
+												<!-- <a href="/view-my-post?search=<%= posts[i] %>"</a>Add Phone Number<%= phone_number %></li> -->
+										<% } %>
+									</ul>
+								<h2>My Open Searches</h2>
+									<ul>
+										<% if (posts[0]) { %>
+											<% for (var i = 0; i < posts.length; i++) { %>
+												<% if (i % 2 == 0) { %>
+											    <li class="remove"><a href="/view-my-post?search=<%= posts[i] %>"</a><%= posts[i] %></li>
+												<% } %>
+											<% } %>
+										<% } else { %>
+											<li>No posts yet. Create a new post <a href="/post"</a>here</li>
+										<% } %>
+									</ul>
+                <!-- <h2>Payment Information</h2>
+									<p>You are currently on the <%= payment_tier %> plan</p>
+									<p>Upgrade now for access to more searches, advanced features, and better connections</p>
+									<ul>
+										<li>Standard</li>
+											<ul>
+												<li>3 posts per month</li>
+												<li>$15 per month</li>
+											</ul>
+										<li>Premier</li>
+											<ul>
+												<li>Unlimited posts</li>
+												<li>$30 per month</li>
+											</ul>
+									</ul> -->
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Post</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+
+		<!-- Google Analytics -->
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-93948712-1', 'auto');
+		  ga('send', 'pageview');
+
+		</script>
+
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<a href="/" class="title"><img class="logo" src="images/dounoa-network.jpg"></a>
+				<nav>
+					<ul>
+						<li><a href="/">View all Searches</a></li>
+						<li><a href="/post" class="active">Post A Search</a></li>
+						<li><a href="/my-profile">My Profile</a></li>
+						<li><a href="/logout">Logout</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+							<h1 class="major">I'm Looking For A...</h1>
+							<% if(error) { %>
+								<p class="error"><%= error %><p>
+							<% } %>
+              <form method="post" action="/post" id="postform">
+                <div>
+                  <input type="text" name="search" id="search" />
+                </div>
+                <div>
+                  <label for="description">Further Description</label>
+                  <textarea name="description" id="description" rows="3"></textarea>
+                </div>
+								<div>
+									<label for="category">Category</label>
+									<select name="category" form="postform">
+										<option value="select">Select</option>
+									  <option value="programming">Programming & Tech</option>
+									  <option value="design">Graphics & Design</option>
+									  <option value="music">Music & Audio</option>
+										<option value="business">Business & Economics</option>
+										<option value="advice">Professional and Academic Advice</option>
+										<option value="sale">For Sale</option>
+										<option value="event">Event or Conference</option>
+									  <option value="other">Other</option>
+									</select>
+                </div>
+                <ul class="actions">
+									<!-- <li><a href="https://venmo.com/?txn=pay&audience=public&recipients=DoUNoA&amount=2.00&note=Search" class="button submit">Pay</a></li> -->
+                  <li><a href="#" class="button submit">Post</a></li>
+                  <div id="display"></div>
+                </ul>
+              </form>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
